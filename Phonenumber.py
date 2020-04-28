@@ -8,16 +8,16 @@ C = '\033[36m' # cyan
 W = '\033[0m'  # white
 
 def Phonenumber():
-    print ( W + '[+]' + G + ' Fetching Phonenumber Details...' + '\n')
-    ph=int(input(C+"\nroot@osint:"+W+"~/Phonenumber:Enter the Phonenumber (Eg:919451237895) :"))
+    print ( W + '[+]' + G + ' Fetching Phone number Details...' + '\n')
+    ph=int(input(C+"\nroot@osint:"+W+"~/Phone number:Enter the Phone number (Eg:919451237895) :"))
     api_key=phoneapis()
     if api_key == "":
-        print("Add you phoneapis api key to src/api.py")
+        print("Add your phoneapis API key to src/api.py")
         exit()
     url = ("http://apilayer.net/api/validate?access_key="+api_key+"&number="+str(ph))
     response=requests.get(url)
     if "91" not in str(ph):
-        print(R+"Error: CountryCode is missing")
+        print(R+"Error: Country Code is missing")
     else:
         if response.status_code ==200:
             get=response.json()
