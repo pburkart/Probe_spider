@@ -6,11 +6,11 @@ def HostHeader(host, port):
     elif port == 443:
         port = 'https://'
     else:
-        print("Could'nt fetch data for the given PORT")
+        print("Couldn't fetch data for the given PORT")
     url = (port + host)
     headers = {'Host': 'http://evil.com'}
     response = requests.get(url, headers=headers)
     if 'evil.com' in response.headers:
-        print("Vulnerable to Host Header Injection")
+        print("Vulnerable to host header Injection")
     else:
-        print("Not Vulnerable to Host header injection")
+        print("Not Vulnerable to host header injection")
