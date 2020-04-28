@@ -14,7 +14,7 @@ def get_exif(fn):
         i = Image.open(fn)
         info = i._getexif()
         if str(info) == "None":
-            print(R+"Metadata is not Much Informative:")
+            print(R+"Metadata isn't informative")
             return -1
         for tag, value in info.items():
             decoded = TAGS.get(tag, tag)
