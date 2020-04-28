@@ -16,7 +16,7 @@ def crawler(target,port):
 	elif port == 443:
 		port="https://"
 	else:
-		print("Could'nt fetch data for the given PORT")
+		print("Couldn't fetch data for the given PORT")
 
 	total = []
 	r_total = []
@@ -26,7 +26,9 @@ def crawler(target,port):
 	int_total = []
 	ext_total = []
 	img_total = []
+	
 	print ('\n' + R + '[+]' + C + ' Crawling Target...' + W + '\n')
+	
 	try:
 		target=port+target
 		rqst = requests.get(target, headers=user_agent, verify=False, timeout=10)
@@ -42,14 +44,17 @@ def crawler(target,port):
 			sm_url = 'http://{}/sitemap.xml'.format(domain)
 
 			print(R + '[+]' + C + ' Looking for robots.txt' + W, end = '')
+			
 			r_rqst = requests.get(r_url, headers=user_agent, verify=False, timeout=10)
 			r_sc = r_rqst.status_code
 
 			if r_sc == 200:
 				print(R +'['.rjust(9, '.') + ' Found ]' + W)
 				print(R +'[+]' + C + ' Extracting robots Links', end = '')
+				
 				r_page = r_rqst.text
 				r_scrape = r_page.split('\n')
+				
 				for entry in r_scrape:
 					if 'Disallow' in entry:
 						url = entry.split(':')
@@ -70,6 +75,7 @@ def crawler(target,port):
 						except:
 							pass
 				r_total = set(r_total)
+				
 				print(R +'['.rjust(8, '.') + ' {} ]'.format(str(len(r_total))))
 
 			elif r_sc == 404:
@@ -83,15 +89,19 @@ def crawler(target,port):
 			if sm_sc == 200:
 				print(R +'['.rjust(8, '.') + ' Found ]' + W)
 				print(R +'[+]' + C + ' Extracting sitemap Links', end = '')
+				
 				sm_page = sm_rqst.content
 				sm_soup = bs4.BeautifulSoup(sm_page, 'xml')
 				links = sm_soup.find_all('loc')
+				
 				for url in links:
 					url = url.get_text()
 					if url is not None:
 						total.append(url)
 						sm_total.append(url)
+						
 				sm_total = set(sm_total)
+				
 				print(R +'['.rjust(7, '.') + ' {} ]'.format(str(len(sm_total))))
 
 			elif sm_sc == 404:
@@ -100,57 +110,71 @@ def crawler(target,port):
 				print(R + '['.rjust(8, '.') + ' {} ]'.format(sm_sc) + W)
 
 			print(R +'[+]' + C + ' Extracting CSS Links' + W, end = '')
+			
 			css = soup.find_all('link')
+			
 			for link in css:
 				url = link.get('href')
 				if url is not None and '.css' in url:
 					total.append(url)
 					css_total.append(url)
+					
 			css_total = set(css_total)
+			
 			print(R +'['.rjust(11, '.') + ' {} ]'.format(str(len(css_total))))
-
 			print(R +'[+]' + C + ' Extracting Javascript Links' + W, end = '')
+			
 			js = soup.find_all('script')
+			
 			for link in js:
 				url = link.get('src')
 				if url is not None and '.js' in url:
 					total.append(url)
 					js_total.append(url)
+					
 			js_total = set(js_total)
+			
 			print(R +'['.rjust(4, '.') + ' {} ]'.format(str(len(js_total))))
-
 			print(R +'[+]' + C + ' Extracting Internal Links' + W, end = '')
+			
 			links = soup.find_all('a')
+			
 			for link in links:
 				url = link.get('href')
 				if url is not None:
 					if domain in url:
 						total.append(url)
 						int_total.append(url)
+						
 			int_total = set(int_total)
+			
 			print(R +'['.rjust(6, '.') + ' {} ]'.format(str(len(int_total))))
-
 			print(R +'[+]' + C + ' Extracting External Links' + W, end = '')
+			
 			for link in links:
 				url = link.get('href')
 				if url is not None:
 					if domain not in url and 'http' in url:
 						total.append(url)
 						ext_total.append(url)
+						
 			ext_total = set(ext_total)
+			
 			print(R +'['.rjust(6, '.') + ' {} ]'.format(str(len(ext_total))))
-
 			print(R +'[+]' + C + ' Extracting Images' + W, end = '')
+			
 			images = soup.find_all('img')
+			
 			for link in images:
 				src = link.get('src')
 				if src is not None and len(src) > 1:
 					total.append(src)
 					img_total.append(src)
+					
 			img_total = set(img_total)
-			print(R +'['.rjust(14, '.') + ' {} ]'.format(str(len(img_total))))
-
 			total = set(total)
+			
+			print(R +'['.rjust(14, '.') + ' {} ]'.format(str(len(img_total))))
 			print('\n' + R +'[+]' + C + ' Total Links Extracted : ' + W + str(len(total)) + '\n')
 
 			if len(total) is not 0:
@@ -201,5 +225,6 @@ def crawler(target,port):
 
 		else:
 			print (R + '[-]' + C + ' Error : ' + W + str(sc))
+			
 	except Exception as e:
 		print(R + '[-] Error : ' + C + str(e))
