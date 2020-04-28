@@ -9,7 +9,7 @@
   <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
   <img src="https://img.shields.io/badge/Status-up-brightgreen" alt="status-up">
 </p>
-This is a Open Source Intelligence Tool made completely in Python.<br>
+This is an Open Source Intelligence Tool made completely in Python.<br>
 <br><br>
 
 **This tool has undergone massive improvement and was re-released as a separate tool here**
