@@ -22,7 +22,6 @@ W = '\033[0m'  # white
 
 # Checking whether the target host is alive or dead
 def CheckTarget():
-
     s =  socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     result = s.connect_ex((host, port))
 
@@ -33,14 +32,15 @@ def CheckTarget():
 
 # Main Method
 def domain():
-
     global host
-    host = input("Enter the Target Host : ")
     global port
+    host = input("Enter the Target Host : ")
     port = int(input("Enter the Target port : "))
+    
     print ( W + '[+]' + G + 'Checking whether the Target is reachable ...' + '\n')
+    
     # calling CheckTarget method
-    if CheckTarget()==True:
+    if CheckTarget():
         print("Target Alive \n")
         print("Host : " + host)
         print("Port : %s" % port)
@@ -57,8 +57,8 @@ NmapFunctions = {
 
 
 def nmaprec(host,port):
-
     Choice = 1
+    
     while True:
         print("1. Scan Default Ports (22-443)")
         print("2. Enter Custom Range")
@@ -70,7 +70,7 @@ def nmaprec(host,port):
         elif Choice == 3:
             Menu()
         else:
-            print("Please choose an Appropriate option")
+            print("Please choose an appropriate option")
 
 BruteFunctions = {
         1: ssh,
@@ -92,7 +92,7 @@ def BruteForce(host, port):
         elif Selection == 3:
             Menu()
         else:
-            print("Please choose an Appropriate option")
+            print("Please choose an appropriate option")
 
 
 MainFunctions = {
@@ -134,5 +134,5 @@ def Menu():
         elif Selection == 99:
             exit()
         else:
-            print(R+"Error: Please choose an Appropriate option")
+            print(R+"Error: Please choose an appropriate option")
         print(W+'')
