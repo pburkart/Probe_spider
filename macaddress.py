@@ -7,7 +7,7 @@ W = '\033[0m'  # white
 
 def MacAddressLookup():
     mac = input(C+"Enter the MAC Address (Eg:08:00:69:02:01:FC):"+W)
-    print ( W + '[+]' + G + "Processing Mac Address..." + '\n')
+    print ( W + '[+]' + G + "Processing MAC Address..." + '\n')
     url = ("https://macvendors.co/api/" + mac)
     response=requests.get(url)
     result=response.json()
@@ -16,7 +16,7 @@ def MacAddressLookup():
         print(C+"Company:" + W+final["company"])
         print(C+"Address:" + W+final["address"])
         print(C+"Country:" + W+final["country"])
-        ch=input(C+"Want to Redo (Y/N):"+W)
+        ch=input(C+"Redo (Y/N):"+W)
         if ch=="y" or ch=="Y":
             MacAddressLookup()
         print("")
