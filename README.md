@@ -84,6 +84,14 @@ To Run Probe_Spider
 ```
 python3 main.py
 ```
+In some cases you may also need to run it with elevated privileges, in which case type:
+```
+sudo python3 main.py
+```
+You also need to fetch the requirements again with elevated privileges as well by typing:
+```
+sudo pip3 install -r requirements
+```
 
 ### Important Message  :warning:
 
