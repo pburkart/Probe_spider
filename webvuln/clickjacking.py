@@ -7,7 +7,7 @@ def ClickJacking(host, port):
     elif port == 443:
           port = 'https://'
     else:
-         print("Could'nt fetch data for the given PORT")
+         print("Couldn't fetch data for the given PORT")
 
 
     url = (port+host)
@@ -16,7 +16,7 @@ def ClickJacking(host, port):
     headers = data.info()
 
     if not "X-Frame-Options" in headers:
-          print("Website is vulnerable to ClickJacking")
+          print("Website is vulnerable to clickjacking")
 
     else:
-        print("Website is not Vulnerable to ClickJacking")
+        print("Website is not vulnerable to clickjacking")
