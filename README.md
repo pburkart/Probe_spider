@@ -9,28 +9,28 @@
   <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
   <img src="https://img.shields.io/badge/Status-up-brightgreen" alt="status-up">
 </p>
-This is a Open Source Intelligence Tool made complete out of Python.<br>
+This is a Open Source Intelligence Tool made completely in Python.<br>
 <br><br>
 
-**This tool has been fixed with issues and released a update here**
+**This tool has undergone massive improvement and was re-released as a separate tool here**
 
 ## [Recon Spider](https://github.com/bhavsec/reconspider)
 
 <br><br>
 
-## Overview of the tool:
+## Overview: 
 
-* Tool has module involved to scrape social media account details from Instagram, Facebook and Twitter
-* It can find details about Phone number
-* Email data Breach
-* Domain module has various scans for domain check for vulneribility and spider crawlers
+* Has a module for scraping account details from Instagram, Facebook, and Twitter.
+* Phone Number Lookup for Carrier Details
+* Search for E-Mails in Data Breaches
+* Domain module has various vulnerability scanners and web crawlers
 * Metadata Analyser
 * Reverse Image Search 
 * IP Heatmap generator
-* Mac Address finder of manufacturer
-* IP2Proxy checks whether provided ip uses any kind of Proxy/VPN if any then check for DNSLeaks
+* MAC Address Lookup
+* IP2Proxy checks if an IP is using a proxy or VPN and looks for DNS Leaks if they are
 * Torrent Download History
-* Tool is currently available only in Command Line Interface (CLI)
+* Tool is currently only available as a Command Line Interface (CLI) application
 
 ![Tool UI](https://drive.google.com/uc?export=view&id=1z-TiU5DHUTN6a69igDzDJPZFcPNOjphF)
 
@@ -58,7 +58,7 @@ https://github.com/texnikru/GeoLite2-Database/blob/master/GeoLite2-City.mmdb.gz
 ```
 https://lite.ip2location.com/database/px8-ip-proxytype-country-region-city-isp-domain-usagetype-asn-lastseen
 ```
-Download both database and move it to Probe_Spider/src/.
+Download both databases and move them to Probe_Spider/src/.
 
 ### Installation  :floppy_disk:
 Open Terminal and type
@@ -68,7 +68,7 @@ git clone https://github.com/Aravindha1234u/Probe_Spider
 cd Probe_Spider
 ```
 
-To Install required Python package
+To Install required Python packages
 
 ```
 pip3 install -r requirements.txt
@@ -79,7 +79,7 @@ python3 -m pip install -r requirements.txt
 ```
 
 ### Execution  :+1:
-**Before Executing, Change api keys in file src/api.py file for full version of the tool**  
+**Before Executing, change the API keys in the src/api.py file or it will not work**  
 To Run Probe_Spider
 ```
 python3 main.py
@@ -97,7 +97,7 @@ Probe_Spider is licensed under GNU General Public License v3.0. Take a look at t
 [Gowtham G](https://github.com/Gowtham-18)
 
 ### Issues
-Feel free to express any kind of bug or error in this tool and create a issues, So that it can be fixed soon.<br>
+Feel free to report any bugs or other issues you encounter with this program so we may fix them.<br>
 <a href="https://github.com/Aravindha1234u/Probe_Spider/issues"><img src="https://img.shields.io/badge/issues-33-yellow" /></a>
 
 
