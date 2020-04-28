@@ -8,7 +8,7 @@ W = '\033[0m'  # white
 
 def reverseimagesearch():
     try:
-        img=input(C+"root@osint:"+W+"~/#Enter the image path:")
+        img=input(C+"root@osint:"+W+"~/#Enter the image path: ")
         print ( W + '[+]' + G + 'Fetching...' + '\n')
         surl='https://www.google.co.in/searchbyimage/upload'
         murl={'encoded_image': (img, open(img, 'rb')), 'image_content': ''}
@@ -21,5 +21,5 @@ def reverseimagesearch():
             pass
     except IOError:
         print()
-        print(R+"ERROR : File Does not Exist\n")
+        print(R+"ERROR : File does not exist\n")
         reverseimagesearch()
