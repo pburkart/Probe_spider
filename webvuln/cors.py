@@ -14,12 +14,12 @@ def Cors(host, port):
     elif port == 443:
         port = 'https://'
     else:
-        print("Could'nt fetch data for the given PORT")
+        print("Couldn't fetch data for the given PORT")
         exit()
     print("1. CORS check in Default Host")
     print("2. CORS check in Host's Custom Endpoint")
     print('')
-    choice = int(input('root@osint:~/Domain/CORS#'))
+    choice = int(input('root@osint:~/Domain/CORS# '))
     print('')
     cookies = input("Paste the Cookies (If None,then hit enter) : ")
     global header1
