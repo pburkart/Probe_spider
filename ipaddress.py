@@ -14,7 +14,7 @@ W = '\033[0m'  # white
 
 api_key = ipstack()
 if api_key == "":
-    print("Add you ipstack api key to src/api.py")
+    print("Add your ipstack api key to src/api.py")
     exit()
 
 def IPHeatmap():
@@ -70,7 +70,7 @@ def read_multiple_IP(IP_file):
         for line in f1:
             IP=re.match(r"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$",line)
             IP=IP.group()
-            r = requests.get("http://api.IPstack.com/" + IP + "?access_key=" + api_key)
+            r = requests.get("http://api.ipstack.com/" + IP + "?access_key=" + api_key)
             response = r.json()
             if response['latitude'] and response['longitude']:
                 lats.append(response['latitude'])
