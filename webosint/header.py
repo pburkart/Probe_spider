@@ -7,7 +7,7 @@ def header(target,port):
 	elif port == 443:
 		port="https://"
 	else:
-		print("Could'nt fetch data for the given PORT")
+		print("Couldn't fetch data for the given PORT")
 		exit()
 	print ('\n' + '[+]' + ' Headers :' + '\n')
 	rqst = requests.get(port+target, verify=True, timeout=10)
