@@ -46,7 +46,7 @@ def main():
         print(C+"10."+W+"Torrent")
         print(C+"99."+W+"Exit\n")
 
-        ch=int(input(C+"root@osint#"+W))
+        ch=int(input(C+"root@osint# "+W))
         if ch not in switcher.keys():
             print(R+"Error : "+W+"Invalid Input")
         else:
